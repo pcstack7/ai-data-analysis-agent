@@ -14,8 +14,13 @@ def preprocess_and_save(file):
         # Read the uploaded file into a DataFrame
         if file.name.endswith('.csv'):
             df = pd.read_csv(file, encoding='utf-8', na_values=['NA', 'N/A', 'missing'])
-        elif file.name.endswith('.xlsx'):
-            df = pd.read_excel(file, na_values=['NA', 'N/A', 'missing'])
+        elif file.name.endswith('.xlsx') or file.name.endswith('.xls'):
+            # Explicitly specify the openpyxl engine for Excel files
+            try:
+                df = pd.read_excel(file, engine='openpyxl', na_values=['NA', 'N/A', 'missing'])
+            except ImportError as ie:
+                st.error(f"Excel reading error: {ie}. Please ensure openpyxl is installed: pip install openpyxl")
+                return None, None, None
         else:
             st.error("Unsupported file format. Please upload a CSV or Excel file.")
             return None, None, None
@@ -60,7 +65,7 @@ with st.sidebar:
         st.warning("Please enter your OpenAI API key to proceed.")
 
 # File upload widget
-uploaded_file = st.file_uploader("Upload a CSV or Excel file", type=["csv", "xlsx"])
+uploaded_file = st.file_uploader("Upload a CSV or Excel file", type=["csv", "xlsx", "xls"])
 
 if uploaded_file is not None and "openai_key" in st.session_state:
     # Preprocess and save the uploaded file
