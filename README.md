@@ -59,7 +59,7 @@ An intelligent AI data analysis agent built using the **Phidata framework** and 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/ai-data-analysis-agent.git
+   git clone https://github.com/pcstack7/ai-data-analysis-agent.git
    cd ai-data-analysis-agent
    ```
 
@@ -141,7 +141,7 @@ Contributions are welcome! Here's how you can help:
 ### Development Setup
 ```bash
 # Clone your fork
-git clone https://github.com/YOUR_USERNAME/ai-data-analysis-agent.git
+git clone https://github.com/pcstack7/ai-data-analysis-agent.git
 cd ai-data-analysis-agent
 
 # Install in development mode
@@ -195,5 +195,5 @@ If you find this project useful, please consider giving it a star! ⭐
 
 ---
 
-**Made with ❤️ by [Your Name]**
+**Made with ❤️ by [pcstack7](https://github.com/pcstack7)**
 
